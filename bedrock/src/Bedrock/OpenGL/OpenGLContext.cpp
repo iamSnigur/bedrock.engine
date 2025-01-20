@@ -20,7 +20,7 @@ namespace Bedrock
 
 		std::cout << "Vendor: " << glGetString(GL_VENDOR) << '\n';
 		std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << '\n';
-		std::cout << "Renderer: " << glGetString(GL_RENDERER) << '\n';
+		std::cout << "Renderer: " << glGetString(GL_RENDERER) << '\n';		
 	}
 
 	void OpenGLContext::SwapBuffers()

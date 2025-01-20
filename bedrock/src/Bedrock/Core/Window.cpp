@@ -116,6 +116,16 @@ namespace Bedrock
 		glfwSwapInterval(enable);
 	}
 
+	void Window::SetCursorDisabled()
+	{
+		glfwSetInputMode(m_Window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	}
+
+	void Window::SetCursorNormal()
+	{
+		glfwSetInputMode(m_Window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+	}
+
 	void Window::OnUpdate()
 	{
 		glfwPollEvents();

@@ -25,7 +25,9 @@ namespace Bedrock
 		std::shared_ptr<VertexArray> m_VertexArray;
 		Camera m_Camera;
 		EventDispatcher m_EventDispatcher;
-		float m_RotationAngle;
+		glm::vec2 m_PreviousMousePos;
+		glm::vec3 m_CameraRotation;
+		glm::vec3 m_CameraPosition;
 
 		void OnKeyPress(KeyPressEvent& e);
 	};

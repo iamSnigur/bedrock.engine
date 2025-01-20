@@ -47,8 +47,8 @@ namespace Bedrock
 				case Bedrock::ShaderDataType::None:		return 0;
 				case Bedrock::ShaderDataType::Float:	return 1;
 				case Bedrock::ShaderDataType::Float2:	return 2;
-				case Bedrock::ShaderDataType::Float3:	return 2;
-				case Bedrock::ShaderDataType::Float4:	return 2;
+				case Bedrock::ShaderDataType::Float3:	return 3;
+				case Bedrock::ShaderDataType::Float4:	return 4;
 				case Bedrock::ShaderDataType::Mat3:		return 3 * 3;
 				case Bedrock::ShaderDataType::Mat4:		return 4 * 4;
 				case Bedrock::ShaderDataType::Bool:		return 1;

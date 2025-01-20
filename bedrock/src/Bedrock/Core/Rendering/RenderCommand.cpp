@@ -1,5 +1,5 @@
 #include "RenderCommand.h"
-#include "OpenGL\OpenGLRendererAPI.h"
+#include "OpenGL/OpenGLRendererAPI.h"
 
 namespace Bedrock
 {

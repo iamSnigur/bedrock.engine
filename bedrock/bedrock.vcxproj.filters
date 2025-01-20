@@ -966,6 +966,9 @@
     <ClInclude Include="src\Bedrock\Core\Time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="external\tiny_obj_loader\tiny_obj_loader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Bedrock\Core\EntryPoint.cpp">

@@ -55,7 +55,7 @@
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>external;external\GLFW\include;external\GLAD\include;src\Bedrock</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>external;external\GLFW\include;external\GLAD\include;src\Bedrock;external\tiny_obj_loader</AdditionalIncludeDirectories>
       <AdditionalUsingDirectories>
       </AdditionalUsingDirectories>
     </ClCompile>
@@ -88,6 +88,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="external\tiny_obj_loader\tiny_obj_loader.h" />
     <ClInclude Include="src\Bedrock\Core\Components\Mesh.h" />
     <ClInclude Include="src\Bedrock\Core\Components\Transform.h" />
     <ClInclude Include="src\Bedrock\Core\Events\KeyTokens.h" />

@@ -112,8 +112,8 @@ namespace Bedrock
 		char* msg = static_cast<char*>(_malloca(length * sizeof(char)));
 		glGetShaderInfoLog(id, length, &length, msg);
 
-		std::cout << (type == GL_VERTEX_SHADER ? "Vertex" : "Fragment") << " shader compilation error!" << '\n';
-		std::cout << msg << '\n';
+		std::cerr << (type == GL_VERTEX_SHADER ? "Vertex" : "Fragment") << " shader compilation error!" << '\n';
+		std::cerr << "\033[31m" << msg << "\n\033[0m"; // replace logger
 		delete msg;
 
 		glDeleteShader(id);

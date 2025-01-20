@@ -76,7 +76,7 @@ namespace Bedrock
 
 	void Application::OnCursorMove(CursorMoveEvent& e)
 	{
-		printf("Mouse pos (%d, %d)\n", e.GetX(), e.GetY());
+		//printf("Mouse pos (%d, %d)\n", e.GetX(), e.GetY());
 	}
 
 	/*void Application::OnWindowResize(WindowResizeEvent& e)
