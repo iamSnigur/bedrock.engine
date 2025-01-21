@@ -9,8 +9,13 @@ namespace Bedrock
 	class Transform
 	{
 	public:
-		Transform();
-		Transform(glm::vec3& position, glm::quat& rotation, glm::vec3& scale);
+		Transform(const glm::vec3& position = glm::vec3{ 0.0f },
+			const glm::quat& rotation = glm::quat{},
+			const glm::vec3& scale = glm::vec3{ 1.0f })
+			: m_Position(position), m_Rotation(rotation), m_Scale(scale)
+		{
+			UpdateModelMatrix();
+		}
 
 		const glm::mat4& GetModelMatrix() const { return m_ModelMatrix; }
 		const glm::vec3& GetPosition() const { return m_Position; }
@@ -28,6 +33,12 @@ namespace Bedrock
 
 		glm::mat4 m_ModelMatrix;
 
-		void UpdateModelMatrix();
+		void UpdateModelMatrix()
+		{
+			m_ModelMatrix =
+				  glm::translate(glm::mat4(1.0), m_Position)
+				* glm::toMat4(m_Rotation)
+				* glm::scale(glm::mat4(1.0), m_Scale);
+		}
 	};
 }

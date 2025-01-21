@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Core\Rendering\Shader.h"
+#include "Core/Rendering/Shader.h"
 
 #include <string>
 #include <unordered_map>
-#include "glm\glm.hpp"
+#include "glm/glm.hpp"
 
 namespace Bedrock
 {
@@ -17,7 +17,7 @@ namespace Bedrock
 	class OpenGLShader : public Shader
 	{
 	public:
-		OpenGLShader(const std::string& path);
+		OpenGLShader(const std::string& vertexPath, const std::string& fragmentPath);
 		virtual ~OpenGLShader();
 
 		virtual void Bind() const override;
@@ -29,10 +29,10 @@ namespace Bedrock
 
 	private:
 		uint32_t m_RendererID;
-		std::string m_Filepath;
 		std::unordered_map<std::string, int> m_UniformsCache;
 
-		ShaderProgramSource ParseShader(const std::string& path);
+		ShaderProgramSource ParseShader(const std::string& vertexPath, const std::string& fragmentPath);
+		std::string ReadShaderFile(const std::string& path);
 		uint32_t CreateShader(const std::string& vertexShader, const std::string& fragmentShader);
 		uint32_t CompileShader(const uint32_t type, const std::string& source);
 

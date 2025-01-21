@@ -12,7 +12,8 @@ namespace Bedrock
 #define BIND_EVENT(x) std::bind(&Bedrock::x, this, std::placeholders::_1)
 
 	TestScene::TestScene()
-		:	m_Camera{ 60.0f, 1920.0f, 1080.0f }
+		:	m_Camera{ 60.0f, 1920.0f, 1080.0f },
+			m_ModelTransform{ {}, {}, glm::vec3{2.0f, 2.0f, 2.0f} }
 	{
 		m_VertexArray.reset(VertexArray::Create());
 				
@@ -50,7 +51,9 @@ namespace Bedrock
 		indexBuffer.reset(IndexBuffer::Create(indices.data(), indices.size()));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
-		m_Shader.reset(Shader::Create("res/shaders/default.glsl"));
+		m_Shader.reset(Shader::Create(
+			"res/shaders/default.vert",
+			"res/shaders/default.frag"));
 
 		m_CameraPosition = glm::vec3{ 0.0f, 0.0f, 10.0f };
 		Application::Get().GetWindow().SetCursorDisabled();
@@ -116,7 +119,7 @@ namespace Bedrock
 
 		Renderer::BeginScene(m_Camera);
 
-		Renderer::Submit(m_VertexArray, m_Shader); // submit whole mesh
+		Renderer::Submit(m_VertexArray, m_Shader, m_ModelTransform); // submit whole mesh
 
 		Renderer::EndScene();
 

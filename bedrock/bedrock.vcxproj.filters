@@ -1028,9 +1028,6 @@
     <ClCompile Include="src\Bedrock\Core\Rendering\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Bedrock\Core\Components\Transform.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Bedrock\Core\Events\EventDispatcher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1042,7 +1039,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\shaders\default.glsl" />
     <None Include="res\shaders\default.frag" />
     <None Include="external\glm\detail\func_common.inl">
       <Filter>Header Files</Filter>
@@ -1458,5 +1454,6 @@
     <None Include="external\glm\gtx\wrap.inl">
       <Filter>Header Files</Filter>
     </None>
+    <None Include="res\shaders\default.vert" />
   </ItemGroup>
 </Project>

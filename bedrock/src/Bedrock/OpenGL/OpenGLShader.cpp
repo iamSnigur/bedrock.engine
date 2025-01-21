@@ -1,5 +1,5 @@
 #include "OpenGLShader.h"
-#include "glad\glad.h"
+#include "glad/glad.h"
 #include "glm/gtc/type_ptr.hpp"
 
 #include <iostream>
@@ -8,11 +8,10 @@
 
 namespace Bedrock
 {
-	OpenGLShader::OpenGLShader(const std::string& path)
-		:	m_Filepath(path),
-			m_RendererID(0)
+	OpenGLShader::OpenGLShader(const std::string& vertexPath, const std::string& fragmentPath)
+		:	m_RendererID(0)
 	{
-		ShaderProgramSource src = ParseShader(path);
+		ShaderProgramSource src = ParseShader(vertexPath, fragmentPath);
 		m_RendererID = CreateShader(src.VertexSource, src.FragmentSource);
 	}
 
@@ -46,35 +45,24 @@ namespace Bedrock
 		glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, glm::value_ptr(matrix));
 	}
 
-	ShaderProgramSource OpenGLShader::ParseShader(const std::string& path)
+	ShaderProgramSource OpenGLShader::ParseShader(const std::string& vertexPath, const std::string& fragmentPath)
+	{
+		std::string vertexSrc = ReadShaderFile(vertexPath);
+		std::string fragmentSrc = ReadShaderFile(fragmentPath);
+
+		return ShaderProgramSource{ vertexSrc, fragmentSrc };
+	}
+
+	std::string OpenGLShader::ReadShaderFile(const std::string& path)
 	{
 		std::fstream file{ path };
 
-		enum ShaderType
-		{
-			NONE = -1,
-			VERTEX = 0,
-			FRAGMENT = 1,
-		};
+		std::stringstream ss;
+		ss << file.rdbuf();
 
-		std::string line;
-		std::stringstream ss[2];
-		ShaderType type = NONE;
+		file.close();
 
-		while (std::getline(file, line))
-		{
-			if (line.find("#shader") != std::string::npos)
-			{
-				if (line.find("vertex") != std::string::npos)
-					type = VERTEX;
-				else if (line.find("fragment") != std::string::npos)
-					type = FRAGMENT;
-			}
-			else
-				ss[type] << line << '\n';
-		}
-
-		return ShaderProgramSource{ ss[VERTEX].str(), ss[FRAGMENT].str() };
+		return ss.str();
 	}
 
 	uint32_t OpenGLShader::CreateShader(const std::string& vertexShader, const std::string& fragmentShader)

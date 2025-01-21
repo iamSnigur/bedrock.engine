@@ -408,7 +408,6 @@
     <ClInclude Include="src\Bedrock\Core\Rendering\Shader.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Bedrock\Core\Components\Transform.cpp" />
     <ClCompile Include="src\Bedrock\Core\Events\EventDispatcher.cpp" />
     <ClCompile Include="src\Bedrock\Core\Input.cpp" />
     <ClCompile Include="src\Bedrock\Core\Rendering\Camera.cpp" />
@@ -571,8 +570,8 @@
     <None Include="external\glm\gtx\vector_angle.inl" />
     <None Include="external\glm\gtx\vector_query.inl" />
     <None Include="external\glm\gtx\wrap.inl" />
+    <None Include="res\shaders\default.vert" />
     <None Include="res\shaders\default.frag" />
-    <None Include="res\shaders\default.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

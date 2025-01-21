@@ -8,6 +8,7 @@
 #include "Core/Rendering/Buffer.h"
 #include "Core/Rendering/VertexArray.h"
 #include "Core/Events/EventDispatcher.h"
+#include "Core/Components/Transform.h"
 
 namespace Bedrock
 {
@@ -28,6 +29,7 @@ namespace Bedrock
 		glm::vec2 m_PreviousMousePos;
 		glm::vec3 m_CameraRotation;
 		glm::vec3 m_CameraPosition;
+		Transform m_ModelTransform;
 
 		void OnKeyPress(KeyPressEvent& e);
 	};
